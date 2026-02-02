@@ -4,6 +4,7 @@ import {  FcPrevious } from 'react-icons/fc';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api, { API_URL } from '../api';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -39,7 +40,7 @@ function Register() {
       return;
     }
     try {
-      await axios.post('/api/auth/register', { 
+      await api.post('/auth/register', { 
         email: data.email,
         nom: data.nom, 
         prenom: data.prenom, 

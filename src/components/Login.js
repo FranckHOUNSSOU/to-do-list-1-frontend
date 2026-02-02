@@ -3,6 +3,7 @@ import { Container, Row, Col, Form, Button} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import api from '../api';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -30,7 +31,7 @@ function Login(){
   const onSubmit = async (data) => {
     console.log('connexion avec:', data);
     try {
-      const res = await axios.post('/api/auth/login', { email: data.email, mot_de_passe: data.mot_de_passe });
+      const res = await api.post('/auth/login', { email: data.email, mot_de_passe: data.mot_de_passe });
       sessionStorage.setItem('token', res.data.token);
       reset();
       navigate('/dashboard');
