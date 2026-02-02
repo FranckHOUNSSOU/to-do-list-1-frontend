@@ -39,7 +39,7 @@ function Register() {
       return;
     }
     try {
-      const res = await axios.post('/api/auth/register', { 
+      await axios.post('/api/auth/register', { 
         email: data.email,
         nom: data.nom, 
         prenom: data.prenom, 

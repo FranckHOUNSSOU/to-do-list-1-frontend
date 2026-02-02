@@ -51,7 +51,6 @@ import {
   FcAcceptDatabase,
   FcSettings,
   FcCustomerSupport,
-  FcInfo,
   FcAssistant,
   FcInvite,
 } from "react-icons/fc";
@@ -637,7 +636,7 @@ function ModalAjoutCollaborateur({
   const handleAdd = async () => {
     try {
       const token = sessionStorage.getItem("token");
-      const res = await axios.post(
+      await axios.post(
         "/api/invitation_create/createInvitation",
         {
           _id: projet._id,
@@ -1532,7 +1531,7 @@ function Dashboard() {
   const ajoutCollab = async () => {
     try {
       const token = sessionStorage.getItem("token");
-      const res = await axios.post(
+      await axios.post(
         "/api/collab_add/addCollab",
         {
           projetId: invitationProjetId,
